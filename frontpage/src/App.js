@@ -1,18 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SimpleImageSlider from "react-simple-image-slider";
 import Aboutus from "./Aboutus";
 import Home from "./Home";
 import Contact from "./Contact";
 import Shop from "./Shop";
+import Product from "./Product";
+import Login from "./Login";
+import Register from "./Register";
+import Createcategory from "./createcategory";
+import Catogerylist from "./Catogerylist"
 import{BrowserRouter, Routes, Route} from "react-router-dom";
 import {Link} from 'react-router-dom'
-
-
-
-
-
 
 function App() {
 
@@ -36,7 +34,11 @@ function App() {
       <Route path="/aboutus" element= {<Aboutus />}/>
       <Route path="/contact" element= {<Contact />}/>
       <Route path="/shop" element= {<Shop />}/>
-         
+      <Route path="/product" element= {<Product/> }/>
+      <Route path="/Login" element= {<Login/> }/>
+      <Route path="/Register" element= {<Register/> }/>
+      <Route path="/createcategory" element= {<Createcategory /> }/>
+      <Route path="/Catogerylist" element= {<Catogerylist /> }/>
     </Routes>
     </BrowserRouter>
   );

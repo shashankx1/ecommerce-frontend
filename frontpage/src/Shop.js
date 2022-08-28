@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./shop.css"
 import SearchIcon from "./assets/search.png";
 import {chairArray} from './chairData';
 import CategoryItem from './CategoryItem';
+import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
+
+
 
 function Shop() {
 
+    const[data, setData]= useState([]);
+    const navigate = useNavigate ();
 
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/products').then(res => setData(res.data.data)).catch(err => console.log(err))
+    },[])
+     
 
     return (
         <div className='bg-secondary'>
@@ -26,9 +37,9 @@ function Shop() {
 
 
                 </div>
-                    <div className='d-flex flex-wrap p-2 g-2 justify-content-center'>
+                    <div className='d-flex flex-wrap p-2 m-2 justify-content-center'>
                         {
-                            chairArray.map (chair => <CategoryItem name = {chair.name} image={chair.image}/>)
+                            data.map (chair => <CategoryItem name = {chair.name} image={chair.imageUrl}/>)
                         }
 
                     
