@@ -1,6 +1,31 @@
-.contact{
+.contact{  
     display: flex;
     justify-content: space-between;
     margin: 100px;
-    align-items: center ;
+    align-items: center ; 
 }
+
+.Address{
+    display: flex;
+    font-weight: bold ;
+    color: black;
+}
+
+.Phone{
+    display: flex;
+    font-weight: bold;
+    color: black;
+}
+
+.gmail{
+    display: flex;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+/* .button{
+    display: flex;
+    background-color: #f44336;
+    border: 0ch;
+    
+} */

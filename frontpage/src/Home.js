@@ -1,51 +1,56 @@
-import React from 'react';
+import React from "react";
 import SimpleImageSlider from "react-simple-image-slider";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { TbHome } from "react-icons/tb";
 const images = [
-  { url: "https://media.istockphoto.com/vectors/old-wooden-chair-isolated-on-white-backgroundfurniture-for-dining-vector-id1159568874?k=20&m=1159568874&s=612x612&w=0&h=DazRv9-NA88QjTRG3B58zAu58AXMyGCV9jc6gmjY_Hc=" },
-  { url: "images/2.https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SLuulrfdzRGuUdNFR760xIAW3iUj41Sxlw7uQnkiwYbLC__l6KH9eSxaNM2L9LXsHRs&usqp=CAUjpg" },
-  { url: "https://thumbs.dreamstime.com/b/wooden-chair-isolated-11718982.jpg" },
-  { url: "https://3.imimg.com/data3/GK/JX/MY-3148977/wooden-chair-500x500.png" },
+  {
+    url:
+      "https://www.freeiconspng.com/thumbs/chair-png/classic-chair-png-3.png",
+  },
+  {
+    url:
+      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+  },
+  {
+    url:
+      "https://images.unsplash.com/photo-1611464908623-07f19927264e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80",
+  },
+  {
+    url: "https://3.imimg.com/data3/GK/JX/MY-3148977/wooden-chair-500x500.png",
+  },
 ];
 
-
-
-
 function Home() {
-  const home = () => {
-
-  }
+  const Home = () => {};
   return (
-    <div className="home bg-secondary">
-      <div className='background'>
-   
+    <div className="home container">
+      <div className="background">
+        <div className="main">
+          <div className="text">
+            <h4>
+              Welcome to <br /> your dream furniture.
+            </h4>
+            <br />
+            <button type="button" class="btn btn-outline-dark">
+              SHOP NOW
+            </button>
+          </div>
 
+          <div className="image">
+            <SimpleImageSlider
+              width={550}
+              height={600}
+              images={images}
+              showBullets={true}
+              showNavs={true}
+            />
+          </div>
+        </div>
 
-    <div className='main'>
-    <div className='text'>
-      <h4>Welcome to <br /> your dream furniture.</h4>
-      <br />
-      <button type="button" class="btn btn-outline-dark">SHOP NOW</button>
-    </div>
-
-    <div className='image'>
-    <SimpleImageSlider
-        width={500}
-        height={250}
-        images={images}
-        showBullets={true}
-        showNavs={true}
-      />
-    </div>
-    </div>
-    
-    <div className='last'>
-      
-      <p className='lasttext'>2020 • NEW DELHI - NCR </p>
-      
-    </div>
-
-    </div>
+        <div className="last bg-secondary">
+          <p className="lasttext">2020 • NEW DELHI - NCR </p>
+        </div>
+      </div>
     </div>
   );
 }

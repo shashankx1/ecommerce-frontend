@@ -1,5 +1,4 @@
 
-
 export const chairArray =[
     {
         name:'Traditional Wooden Dining Chair',

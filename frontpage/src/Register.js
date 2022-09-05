@@ -1,73 +1,99 @@
-import axios from 'axios';
-import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {BsFillArchiveFill } from "react-icons/bs";
+import './Register.css';
 
 function Register() {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const [emailAddress, setEmailAddress] = useState("")  
-    const [password, setPassword] = useState("")  
-    const [name, setName] = useState("")  
-    const [phoneNumber, setPhoneNumber] = useState("")  
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
-   function registeruser(){
-    console.log('emailaddress',emailAddress)
-    console.log('password',password)
-    console.log('name',name)
-    console.log('phoneNumber', phoneNumber)
+  function registeruser() {
+    console.log("emailaddress", emailAddress);
+    console.log("password", password);
+    console.log("firstname", firstname);
+    console.log("lastname", lastname);
+    console.log("phoneNumber", phoneNumber);
 
-    axios.post('http://localhost:5000/users/register', {emailAddress: emailAddress, password: password, name:name, phoneNumber:phoneNumber })
-        .then(response => {
-            if (response.data.status == 200) {
-                alert("register successfully")
-                navigate("/")
-            }
-        })
-        .catch(error => console.log(error))
-   }  
+    axios
+      .post("http://localhost:5000/users/register", {
+        emailAddress: emailAddress,
+        password: password,
+        name: firstname,
 
-    return (
-        <div className='d-flex'>
+        phoneNumber: phoneNumber,
+      })
+      .then((response) => {
+        if (response.data.status == 200) {
+          alert("register successfully");
+          navigate("/");
+        }
+      })
+      .catch((error) => console.log(error));
+  }
 
-            <div>
-                <img src="https://thumbs.dreamstime.com/b/registration-hand-pressing-button-interface-blue-background-49410297.jpg" alt="" />
+  return (
+    <div className="main d-flex justify-content-center align-item-center ">
+     
+      <div className="d-flex justify-content-center align-item-center my-5">
+        <div className="d-flex flex-column justify-content-center align-items-center gap-3 ">
+            <h1><b>REGISTER HERE</b></h1>
+          
+            <input
+              onChange={(e) => setFirstname(e.target.value)}
+              type="text"
+              placeholder="FIRST NAME"
+              className="form-control"
+            />
 
-            </div>
+            <input
+              onChange={(e) => setLastname(e.target.value)}
+              type="text"
+              placeholder="LAST NAME"
+              className="form-control"
+            />
+         
 
-            <div className='d-flex justify-content-center'>
-                    <div className='d-flex flex-column'>
-                    
-                    
-                    <div className='d-flex gap-3'>
-                    <label>NAME</label>
-                    <input onChange={e =>setName(e.target.value)} type="text" placeholder='FIRST NAME'/>
-                    <label>SURNAME </label>
-                    <input type="text" placeholder='LAST NAME'/>
-                    
-                    </div>
-                    
-                    <div class= "d-flex gap-3">
+          
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="PASSWORD"
+              className="form-control"
+            />
+          
 
-                    <label>password</label>
-                    <input onChange={e => setPassword(e.target.value)} type="password" placeholder='PASSWORD'/>
-                    </div>
-                    <div>
-                        <label>Ema!l</label>
-                        <input onChange={e => setEmailAddress (e.target.value)}type="email" placeholder='email'/>
-                    </div>
+          
+            <input
+              onChange={(e) => setEmailAddress(e.target.value)}
+              type="email"
+              placeholder="EMAIL"
+              className="form-control"
+            />
+          
 
-                    <div>
-                        <label>phone Number</label>
-                        <input onChange={e=>setPhoneNumber(e.target.value)} type="phoneNumber" placeholder='phoneNumber'/>
-                    </div>
-                    <button onClick={registeruser}  type='submit'>REEGISTER USER </button>
-                    
-                
-                </div>
+          
+            <input
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              type="phoneNumber"
+              placeholder="PHONE NUMBER"
+              className="form-control"
+            />
+        
+          <div>
+            <button onClick={registeruser} type="submit" className="btn btn-dark">
+              Register User{" "}
+            </button>
+          </div>
         </div>
-        </div>
-    );
-    }
+      </div>
+    </div>
+  );
+}
 
-    export default Register;
+export default Register;
